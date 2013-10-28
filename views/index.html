@@ -1,0 +1,82 @@
+<!-- Partials "header.html" is included here. The partials are passed from controllers -->
+{{> header}}
+<h1 class="text-center">Mongoose Express Demo</h1>
+
+<p class="text-center">A <a href="http://mongoosejs.com">mongoose</a> demo app in node.js using express and hogan for
+    beginners...</p>
+<br>
+<div class="row jumbotron-fs-deactivate">
+    <ul class="list-unstyled col-md-5 col-md-push-2">
+        <li>
+            <dl class="dl-horizontal">
+                <dt class="text-muted">Platform</dt>
+                <dd><a href="http://nodejs.org">Node.js</a></dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="dl-horizontal">
+                <dt class="text-muted">Framework</dt>
+                <dd><a href="http://expressjs.com">Express</a><sub>
+                    <small>3.0.0</small>
+                </sub></dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="dl-horizontal">
+                <dt class="text-muted">Database ODM</dt>
+                <dd><a href="http://mongoosejs.com">Mongoose</a><sub>
+                    <small>3.6.20</small>
+                </sub></dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="dl-horizontal">
+                <dt class="text-muted">Template</dt>
+                <dd><a href="http://twitter.github.io/hogan.js">Hogan.js</a></dd>
+                <dd>
+                    <ul>
+                        <small>
+                            <li>Partials Supported</li>
+                        </small>
+                    </ul>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+
+    <!-- Check user session exists -->
+    {{#user}}
+    <p class="text-center">WELCOME <a href="/profile"><strong>{{user}}</strong></a></p>
+</div>
+{{/user}}
+<!-- Check user session not exists -->
+{{^user}}
+<div class="col-md-4 col-md-push-1">
+    <p class="text-center">Not yet a user? <a href="/register">REGISTER</a></p>
+
+    <p class="text-center">OR</p>
+
+    <p class="text-center">Wanna login? <a href="/login">LOGIN</a></p>
+</div>
+</div>
+<h4 class="text-left text-primary">LIST OF USERS.
+    <small>Use any of these credentials to login</small>
+</h4>
+<table class="table table-hover jumbotron-fs-deactivate">
+    <tr class="text-left text-primary">
+        <th>Email Address</th>
+        <th>Username</th>
+        <th>Password</th>
+    </tr>
+    {{#list}}
+    <tr>
+        <td>{{email}}</td>
+        <td>{{username}}</td>
+        <td>{{password}}</td>
+    </tr>
+    {{/list}}
+</table>
+
+{{/user}}
+
+{{> footer}}

@@ -1,0 +1,18 @@
+{{> header}}
+    <form class="form-signin" action="/register" method="post">
+      <h2 class="form-signin-heading text-muted">Please register</h2>
+      <input type="text" class="form-control" placeholder="Email Address" name="email" value="{{email}}" autofocus required>
+      <input type="text" class="form-control" placeholder="Username" name="username" value="{{username}}" required>
+      <input type="password" class="form-control" placeholder="Password" name="password" required>
+      <input type="password" class="form-control" placeholder="Re-enter Password" name="repassword" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+    {{#message}}
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error!</strong> {{message}}
+    </div>
+    {{/message}}
+{{> footer}}
+
+

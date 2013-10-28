@@ -1,0 +1,16 @@
+{{> header}}
+    <div class="container">
+        <form class="form-signin" action="/login" method="post">
+            <h2 class="form-signin-heading text-muted">Please login</h2>
+            <input type="text" class="form-control" placeholder="Email/Username" name="email" autofocus >
+            <input type="password" class="form-control" placeholder="Password" name="password" >
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+        {{#message}}
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Error!</strong> {{message}}
+        </div>
+        {{/message}}
+    </div>
+{{> footer}}
