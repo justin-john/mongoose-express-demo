@@ -20,7 +20,11 @@ module.exports = function (app) {
     *  by using request & response object
     *
     *  ####Example
-    *  app.post('/password', [middleware1, middleware2], callback);
+    *  app.post('/password', [middleware1, middleware2, middleware3], callback);
+    *
+    *  Advantages of this approach
+    *    *- To avoid the deep nesting for single callback methods.
+    *    *- Easily Readable code
     * */
     app.post('/password',
             [

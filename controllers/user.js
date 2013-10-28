@@ -1,6 +1,7 @@
 
 /*
- * GET user list.
+ * User Controller
+ * @Author Justin John Mathews
  */
 
 var user = function () {
@@ -75,7 +76,6 @@ var user = function () {
                 ],
                 password: req.param('password')
             }, function (err, doc) {
-                console.log(err, doc);
                 if (err) {
                     res.render('login', { 'message': "Sorry, something gone wrong!" });
                 } else if (doc) {
@@ -175,6 +175,7 @@ var user = function () {
             };
             res.render('password');
         },
+        /* First middleware method for route "app.post('/password', ..."  */   
         findLoggedUser = function (req, res, next) {
             req.loggedUser = null;
             res.locals.partials = {
@@ -192,6 +193,7 @@ var user = function () {
             });
 
         },
+        /* Second middleware method for route "app.post('/password', ..."  */
         checkCurrentPasswordMatch = function (req, res, next) {
             req.checkCurrentPasswordMatch = false;
             if (req.loggedUser.password == req.param('currentpassword')) {
@@ -201,6 +203,7 @@ var user = function () {
             }
             next();
         },
+        /* Third middleware method for route "app.post('/password', ..."  */
         checkPasswordsMatch = function (req, res, next) {
             req.checkPasswordsMatch = false;
             if (req.param('password') == req.param('repassword')) {
@@ -210,6 +213,7 @@ var user = function () {
             }
             next();
         },
+        /* Final callback method for route "app.post('/password', ..."  */
         changePassword = function (req, res) {
             var passwordSchema = {
                 'password': req.param('password')
@@ -225,7 +229,6 @@ var user = function () {
                 condition,
                 passwordSchema,
                 function (e, resultSet) {
-                    console.log(e, resultSet);
                     var obj = {};
                     if (e) {
                         if (e.errors) {

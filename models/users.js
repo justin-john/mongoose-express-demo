@@ -8,10 +8,12 @@ var Users = function () {
     "use strict";
     var mongoose = require('mongoose'),
         /* Validation Functions on mongoose schema */
+        /* Validate email for mongoose schema validate */
         validateEmail = function (email) {
             var re = /\S+@\S+\.\S+/;
             return re.test(email);
         },
+        /* Validate minimum length for mongoose schema validate */
         getMinValidator = function (val) {
             return function  (v) {
                 if (v && v.length) {
@@ -19,6 +21,7 @@ var Users = function () {
                 }
             }
         },
+        /* Validate maximum length for mongoose schema validate */
         getMaxValidator = function (val) {
             return function  (v) {
                 if (v && v.length) {
@@ -57,10 +60,27 @@ var Users = function () {
             },
             created: { type: Date, 'default': Date.now }
         });
+        /* Custom Function added to create documents.
+        *  Add new custom functions according to your requirement.
+        *
+        *  In controller pages
+        *  ####Example
+        *  modal.saveUser(schema, callback)
+        *  
+        * */
         userSchema.statics.saveUser = function (schema, cb) {
           this.create(schema, cb);
         };
-
+    /*
+    * All Mongoose inbuilt functions like "find", "findOne", "create", "save", "update" etc
+    * and custom functions like "saveUser" etc are accessed in controller page
+    * by returning the model.
+    *
+    *  In controller pages we can access these model methods as following
+    *  ####Example
+    *  modal.find(condition, callback);  //  inbuilt function in Mongoose Library
+    *  modal.saveUser(schema, callback); //  custom function extended to Mongoose Library
+    * */
     return mongoose.model('User', userSchema);
 }();
 

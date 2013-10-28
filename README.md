@@ -1,10 +1,10 @@
 Mongoose express demo
 =====================
 
-A demo application in node.js using express, mongoose and hogan for beginners...
+A demo application in node.js using express, mongoose and hogan for beginners.
 This sample application shows how to authenticate a user with Mongoose in node.js.
 
-##### Software Development Tools
+##### Software Development Tools Used
 
 
 <ul>
@@ -26,7 +26,15 @@ This sample application shows how to authenticate a user with Mongoose in node.j
     </li>
 </ul>
 
-## Prerequisites
+##### Features supported
+
+<ul>
+    <li>Registration</li>
+    <li>Login</li>
+    <li>User Profile Access & Update</li>
+</ul>
+
+## Prerequisites for Install
 
 Need node.js and mongodb installed and running.
                 
@@ -39,10 +47,17 @@ $ node app.js
 ```
 Then visit [http://localhost:3000](http://localhost:3000)
 
-**NOTE** Use any of below credentials to login to sample login
+**NOTE**: Use any of below credentials to login in sample application.
 
 
 Email Address | Username | Password
 --- | --- | ---
 angeline@xxx.xx | angeline | angel1
 justin@xxx.xx | justin | justin1
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2013 Justin John Mathews <justinjohnmathews@gmail.com>.
+See full [license](https://github.com/justin-john/mongoose-express-demo/blob/master/LICENSE).

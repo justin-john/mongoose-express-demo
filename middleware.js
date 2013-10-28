@@ -33,8 +33,9 @@ module.exports = function (app) {
         }
     });
     /* Middleware to redirect to home, if session exists.
+     *
      * When user access "login" or "register" page on session,
-     * the control will be redirected to "home".
+     * the control will be redirected to "home" page.
      * */
     app.use(function (req, res, next) {
         if ((req.session && req.session.user) && (req.url === '/login' || req.url === '/register')) {

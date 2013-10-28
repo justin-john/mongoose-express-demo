@@ -10,9 +10,10 @@ var routes = require('./routes');
 var http = require('http');
 
 var app = express();
+/* Set mongoose debug to true for logs all mongoose operations on console */
 mongoose.set('debug', true);
 // all environments
-mongoose.connect('mongodb://localhost/yourdatabasename', function (err) {
+mongoose.connect('mongodb://localhost/dbname', function (err) {
     if (err) throw err;
     /* All Middlewares  are placed in "middleware.js" file */
     middleware(app);

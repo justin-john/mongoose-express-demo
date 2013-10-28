@@ -1,6 +1,7 @@
 
 /*
- * GET home page.
+ * Index Controller
+ * @Author Justin John Mathews
  */
 
 var home = function () {
@@ -13,8 +14,14 @@ var home = function () {
                 { 'email': 'angeline@xxx.xx', 'username': 'angeline', 'password': 'angel1' },
                 { 'email': 'justin@xxx.xx', 'username': 'justin', 'password': 'justin1' }
             ];
+            /*  Executes the query as a create() operation, creating the all documents to database.
+             *
+             *  ####Example
+             *  var schema = { 'username': 'angeline', 'password': 'angel1' };
+             *  model.create(schema, callback);
+             * */
+
             UserModel.create(usersArray, function (e, j, s) {
-                console.log(e, j, s);
                 /* Partials are used to include external templates like header.html and footer.html to a template */
                 res.render('index', {
                     partials: {
@@ -58,6 +65,7 @@ var home = function () {
                      *     res.render('index');
                      * */
                 } else {
+                    /* If no documents is available, push two sample documents to database */
                     pushDummyData(req, res);
                 }
             });
